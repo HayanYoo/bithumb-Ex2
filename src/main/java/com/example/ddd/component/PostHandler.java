@@ -1,5 +1,7 @@
-package com.example.ddd;
+package com.example.ddd.component;
 
+import com.example.ddd.Dto.HelloResponse;
+import com.example.ddd.Dto.InfoDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Component;

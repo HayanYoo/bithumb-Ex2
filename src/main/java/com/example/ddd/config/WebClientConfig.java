@@ -1,4 +1,4 @@
-package com.example.ddd;
+package com.example.ddd.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
