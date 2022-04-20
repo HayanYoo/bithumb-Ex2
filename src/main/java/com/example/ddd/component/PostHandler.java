@@ -20,7 +20,12 @@ public class PostHandler {
 
     public Mono<ServerResponse> createHello(ServerRequest serverRequest) {
         String name = serverRequest.queryParam("name").orElse("");
-        Mono<InfoDto> infoDtoMono = webClient.get().uri("/hello").retrieve().bodyToMono(InfoDto.class);
+        Mono<InfoDto> infoDtoMono = webClient.get()
+                                        .uri(uriBuilder ->
+                                                uriBuilder.path("/info-service/uri")
+                                                        .queryParam("name", name)
+                                                        .build()
+                                        ).retrieve().bodyToMono(InfoDto.class);
 
         Mono<HelloResponse> map = infoDtoMono.map(it -> new HelloResponse(name, it.getJob()));
 
